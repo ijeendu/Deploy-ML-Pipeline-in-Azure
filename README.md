@@ -25,19 +25,17 @@ In this step, an Automated ML experiment was created and a compute cluster confi
 
 #### a. Upload and Register the Banking Dataset
 
-![](images/registered_dataset.png)
- 
-<img src='images/registered_dataset.png" width="100">
+<img src="images/registered_dataset.png">
 
 #### b. Create a compute cluster
 
-<img src='images/compute_cluster.png" width="100">
+<img src="images/compute_cluster.png">
 
 
 #### c. Completed AutoML Experiment
 
 
-<img src='images/completed_automl_experiment.png" width="100">
+<img src="images/completed_automl_experiment.png" width="100">
 
 From the completed AutoMl experiment, the resulting best model is the VotingEnsemble model. 
 
@@ -45,7 +43,7 @@ From the completed AutoMl experiment, the resulting best model is the VotingEnse
 
 Overview of the best AutoMl model
 
-<img src='images/best_model_summary.png" width="100">
+<img src="mages/best_model_summary.png" width="100">
 
 
 
@@ -56,13 +54,13 @@ Deploying the best model enables interaction with the model via HTTP API service
 
 The Best Model was selected and deployed using Azure Container Instance (ACI) with enabled authentication enabled.
  
-<img src='images/deploy_best_model_with_enabled_authentication.png" width="100">
+<img src="images/deploy_best_model_with_enabled_authentication.png" width="100">
 
 #### b. Best Model Deployment Succeeded
 
 The Best Model was successfuly deployed.
 
-<img src='images/best_model_deployed.png" width="100">
+<img src="images/best_model_deployed.png" width="100">
 
 
 
@@ -77,17 +75,17 @@ service.update(enable_app_insights=True).
 
 The script was then run to set application insights and enable logging as shown:
 
-<img src='images/app_insights_enabled.png" width="100">
+<img src="images/app_insights_enabled.png" width="100">
 
 The screen shot also shows that the Best Model has been deployed as a RESTFUL API accessible via the endpoint section.
 
 
 #### b. Sample logs provided after running logs.py
 
-<img src='images/logs_1.png" width="100">
+<img src="images/logs_1.png" width="100">
 
 
-<img src='images/logs_2.png" width="100">
+<img src="images/logs_2.png" width="100">
 
 
 ### Step 5: Swagger Documentation
@@ -99,7 +97,7 @@ The swagger.sh script was used to download the lastest Swagger container and to 
 
 Swagger runs on local host showing HTTP API methods and responses for the model 
 
-<img src='images/Swagger_UI.png" width="100">
+<img src="images/Swagger_UI.png" width="100">
 
 
 ### Step 6: Consume Model Endpoints
@@ -110,7 +108,7 @@ Following model deployment, the Endpoint.py script was used to interact with the
 
 The endpoint.py was successfully run against the API to produce a JSON format output from the model. A data.json file wasproduced after consuming the model.
 
-<img src='images/consume_model.png" width="100">
+<img src="images/consume_model.png" width="100">
 
 
 #### Benchmark the Model Endpoint
@@ -121,13 +119,13 @@ ab -n 10 -v 4 -p data.json -T 'application/json' -H 'Authorization: Bearer REPLA
 
 The screenshots below shows the Apache Benchmark(ab) running agains the HTTP API using authentication keys to retrieve performace results.
 
-<img src='images/benchmark1.png" width="100">
+<img src="images/benchmark1.png" width="100">
 
-<img src='images/benchmark2.png" width="100">
+<img src="images/benchmark2.png" width="100">
 
-<img src='images/benchmark3.png" width="100">
+<img src="images/benchmark3.png" width="100">
 
-<img src='images/benchmark4.png" width="100">
+<img src="images/benchmark4.png" width="100">
 
 
 ### Step 7: Create, Publish and Consume a Pipeline
@@ -137,28 +135,28 @@ The config.json file was downloaded and saved in the current working directory. 
 
 #### a. Pipeline section of Azure ML studio, showing created pipeline
 
-<img src='images/pipeline_created.png" width="100">
+<img src="images/pipeline_created.png" width="100">
 
 #### b. pipeline section in Azure ML studio, showing Pipeline Endpoint
 
-<img src='images/pipeline_endpoint.png" width="100">
+<img src="images/pipeline_endpoint.png" width="100">
 
 #### c. The Bankmarketing dataset with the AutoML module
 
-<img src='images/data_automl_module.png" width="100">
+<img src="images/data_automl_module.png" width="100">
 
 #### d. The "Published Pipeline overview", showing a REST endpoint and a status of ACTIVE
 
-<img src='images/published_pipeline_overview_showing_REST_endpoint.png" width="100">
+<img src="images/published_pipeline_overview_showing_REST_endpoint.png" width="100">
 
 
 #### e. Jupyter Notebook showing steps runs using the "Use RunDetails Widget"
 
-<img src='images/notebook_complete_steps.png" width="100">
+<img src="images/notebook_complete_steps.png" width="100">
 
 #### f. Azure ML studio showing the scheduled pipeline run
 
-<img src='images/published_pipeline_running.png" width="100">
+<img src="images/published_pipeline_running.png" width="100">
 
 
 
