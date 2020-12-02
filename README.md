@@ -3,15 +3,12 @@
 This project demonstrates the entire process of creating a machine learning model using Azure AutoML, deploying the model and consuming it. It also showcases the use of Jupyter Notebook in Azure SDK for creating AutoML pipelines, deploying and consuming it. 
 A bank marketing dataset was used to create a classification model to determine if a client would subscribe to a marketing campaign or not using AutoML in Azure Machine Learning Service. The machine learning studio was first used to configure an automl expriment that explores a variety of classification models based on the automl configuration parameters. At the end of the experiemnt, the best performing model (VotingEnsemble model with an accuracy of 0.92) was deployed to provide a RESTFUL endpoint (API) for interacting with the model. Post model deployment, Application Insights was enabled using Azure SDK to enable collection of logging information from the deployed model. The Swagger JSON file provided by Azure for the deployed model was downloaded from the Endpoints section in Azure under the Swagger URL and saved in a swagger.json file. The contents of the API for the model was displayed and the deployed model was consumed using Swagger. The deployed model was also benchmarked to obtain a baseline performance that can be used for evaluating the model behaviour in the future. Finally, a *Jupyter Notebook* was used to create an AutoML machine learning pipeline in Azure Python SDK using the same bank marketing dataset. The AutoML pipeline was deployed producing a pipeline endpoint that was used to consume the model. The pipeline run completed producing the same results obtained using Azure Machine Learning Studio.
 
-## Suggested Improvement
-The model performance may be improved by perfoming feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30 /45 minutes to allow more models to be explored.
-
-
 ## Architectural Diagram
 An architectural diagram that helps visuaise the flow of operations from start to finish is shown below. It shows the various stages that are critical to the overall flow of the completed project. 
 
-<img src="images/Arch_diagram.png" width="500">
-
+<p align="center">
+ <img src="images/Arch_diagram.png" width="500">
+</p>
 
 ## Key Steps
 The architectural diagram captures 7 major steps that are briefly described in this section.
@@ -28,31 +25,36 @@ In this step, an Automated ML experiment was created and a compute cluster confi
 
 #### a. Upload and Register the Banking Dataset
 
-The dataset was uploaded and registered in the azzure datastore.
+The bank marketing data was uploaded and registered in Azure as a dataset
 
-<img src="images/registered_dataset.png.png" width="500">
+<p align="center">
+<img src="images/registered_dataset.png.png" width="800">
+</p>
 
 #### b. Create a compute cluster
 
 A compute cluster was created to be used for running the model training experiemnt.
 
-<img src="images/compute_cluster.png.png" width="500">
-
+<p align="center">
+<img src="images/compute_cluster.png.png" width="800">
+</p>
 
 #### c. Completed AutoML Experiment
 
 The configured AutoML experiment is completed and best model obtained is the VotingEnsemble model.
 
-<img src="images/completed_automl_experiment.png" width="500">
-
+<p align="center">
+<img src="images/completed_automl_experiment.png" width="800">
+</p>
 
 
 #### d. Best model after the experiment completes
 
 An overview of the best AutoML model shows an accuracy metric of 0.92.
 
-<img src="images/best_model_summary.png" width="500">
-
+<p align="center">
+<img src="images/best_model_summary.png" width="800">
+</p>
 
 
 ### Step 3: Deploy the Best Model
@@ -63,14 +65,17 @@ Here, the best model is deployed to enable interaction with the model via HTTP A
 
 The Best Model was selected and deployed using Azure Container Instance (ACI) with enabled authentication. 
 
-<img src="images/deploy_best_model_with_enabled_authentication.png" width="500">
+<p align="center">
+<img src="images/deploy_best_model_with_enabled_authentication.png" width="800">
+</p>
 
 #### b. Best Model Deployment Succeeded
 
 The Best Model was successfuly deployed.
 
-<img src="images/best_model_deployed.png" width="500">
-
+<p align="center">
+<img src="images/best_model_deployed.png" width="800">
+</p>
 
 
 ### Step 4: Enable Application Insights
@@ -84,7 +89,9 @@ The log.py script was modified to include a line that enables application insigh
 
 The script set the application insights variable and enabled logging as shown:
 
-<img src="images/app_insights_enabled.png" width="500">
+<p align="center">
+<img src="images/app_insights_enabled.png" width="800">
+</p>
 
 The screenshot shows that Application Insights is now set to True and that the Best Model was successfully deployed as a RESTFUL API accessible via the endpoint section.
 
@@ -93,10 +100,13 @@ The screenshot shows that Application Insights is now set to True and that the B
 
 A sample of log information produced by the deployed model can be seen below:
 
-<img src="images/logs_1.png" width="500">
+<p align="center">
+<img src="images/logs_1.png" width="800">
+</p>
 
-<img src="images/logs_2.png" width="500">
-
+<p align="center">
+<img src="images/logs_2.png" width="800">
+</p>
 
 ### Step 5: Swagger Documentation
 
@@ -109,7 +119,9 @@ The *serve.py* script was placed right next to the downloaded *swagger.json* fil
 
 Swagger is used to visualize the API definition contained in *swagger.json*. It shows the HTTP API methods and responses for the deployed model.
 
-<img src="images/Swagger_UI.png" width="500">
+<p align="center">
+<img src="images/Swagger_UI.png" width="800">
+</p>
 
 
 ### Step 6: Consume Model Endpoints
@@ -120,8 +132,9 @@ The *endpoint.py* script was used to interact with the deployed model via the RE
 
 The endpoint.py was successfully run against the API to produce a JSON format output from the model. A data.json file was produced after the model was consumed.
 
-<img src="images/consume_model.png" width="500">
-
+<p align="center">
+<img src="images/consume_model.png" width="800">
+</p>
 
 #### b. Benchmark the Model Endpoint
 
@@ -131,13 +144,21 @@ The model endpoint was benchmarked using the Apache bench in order to load-test 
 
 The screenshots below shows the Apache Benchmark(**ab**) running against the HTTP API using authentication keys to retrieve performance results.
 
-<img src="images/benchmark1.png" width="500">
+<p align="center">
+<img src="images/benchmark1.png" width="800">
+</p>
 
-<img src="images/benchmark2.png" width="500">
+<p align="center">
+<img src="images/benchmark2.png" width="800">
+</p>
 
-<img src="images/benchmark3.png" width="500">
+<p align="center">
+<img src="images/benchmark3.png" width="800">
+</p>
 
-<img src="images/benchmark4.png" width="500">
+<p align="center">
+<img src="images/benchmark4.png" width="800">
+</p>
 
 
 ### Step 7: Create, Publish and Consume a Pipeline
@@ -147,29 +168,44 @@ The *config.json* file was downloaded and saved in the current working directory
 
 #### a. Pipeline section of Azure ML studio, showing created pipeline
 
-<img src="images/pipeline_created.png" width="500">
+<p align="center">
+<img src="images/pipeline_created.png" width="800">
+</p>
 
 #### b. pipeline section in Azure ML studio, showing Pipeline Endpoint
 
-<img src="images/pipeline_endpoint.png" width="500">
+<p align="center">
+<img src="images/pipeline_endpoint.png" width="800">
+</p>
 
 #### c. The Bankmarketing dataset with the AutoML module
 
-<img src="images/data_automl_module.png" width="500">
+<p align="center">
+<img src="images/data_automl_module.png" width="800">
+</p>
 
 #### d. The "Published Pipeline overview", showing a REST endpoint and a status of ACTIVE
 
-<img src="images/published_pipeline_overview_showing_REST_endpoint.png" width="500">
+<p align="center">
+<img src="images/published_pipeline_overview_showing_REST_endpoint.png" width="800">
+</p>
 
 
 #### e. Jupyter Notebook showing run steps using the "Use RunDetails Widget"
 
-<img src="images/notebook_complete_steps.png" width="500">
+<p align="center">
+<img src="images/notebook_complete_steps.png" width="800">
+</p>
+
 
 #### f. Azure ML studio showing the scheduled pipeline run
 
-<img src="images/published_pipeline_running.png" width="500">
+<p align="center">
+<img src="images/published_pipeline_running.png" width="800">
+</p>
 
+## Suggested Improvement
+The model performance may be improved by perfoming feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30 /45 minutes to allow more models to be explored.
 
 
 ## Screen Recording
