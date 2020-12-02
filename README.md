@@ -1,7 +1,7 @@
 # Operationalising a Machine Learning Pipeline in Azure
 
 This project demonstrates the entire process of creating a machine learning model using Azure AutoML, deploying the model and consuming it. It also showcases the use of Jupyter Notebook in Azure SDK for creating AutoML pipelines, deploying and consuming it. 
-A bank marketing dataset was used to create a classification model to determine if a client would subscribe to a marketing campaign or not using AutoML in Azure Machine Learning Service. The machine learning studio was first used to configure an automl expriment that explores a variety of classification models based on the automl configuration parameters. At the end of the experiemnt, the best performing model (VotingEnsemble model with an accuracy of 0.92) was deployed to provide a RESTFUL endpoint (API) for interacting with the model. Post model deployment, Application Insights was enabled using Azure SDK to enable collection of logging information from the deployed model. The Swagger JSON file provided by Azure for the deployed model was downloaded from the Endpoints section in Azure under the Swagger URL and saved in a swagger.json file. The contents of the API for the model was displayed and the deployed model was consumed using Swagger. The deployed model was also benchmarked to obtain a baseline performance that can be used for evaluating the model behaviour in the future. Finally, a *Jupyter Notebook* was used to create an AutoML machine learning pipeline in Azure Python SDK using the same bank marketing dataset. The AutoML pipeline was deployed producing a pipeline endpoint that was used to consume the model. The pipeline run completed producing the same results obtained using Azure Machine Learning Studio.
+A bank marketing dataset was used to create a classification model to determine if a client would subscribe to a marketing campaign or not using AutoML in Azure Machine Learning Service. The machine learning studio was first used to configure an automl expriment that explores a variety of classification models based on the automl configuration parameters. At the end of the experiemnt, the best performing model (VotingEnsemble model with an accuracy of 0.92) was deployed to provide a REST endpoint for interacting with the model. Post model deployment, Application Insights was enabled using Azure SDK to enable collection of logging information from the deployed model. The Swagger JSON file provided by Azure for the deployed model was downloaded from the Endpoints section in Azure under the Swagger URL and saved in a swagger.json file. The contents of the API for the model was displayed and the deployed model was consumed using Swagger. The deployed model was also benchmarked to obtain a baseline performance that can be used for evaluating the model behaviour in the future. Finally, a *Jupyter Notebook* was used to create an AutoML machine learning pipeline in Azure Python SDK using the same bank marketing dataset. The AutoML pipeline was deployed producing a pipeline endpoint that was used to consume the model. The pipeline run completed producing the same results obtained using Azure Machine Learning Studio.
 
 ## Architectural Diagram
 An architectural diagram that helps visuaise the flow of operations from start to finish is shown below. It shows the various stages that are critical to the overall flow of the completed project. 
@@ -33,7 +33,7 @@ The bank marketing data was uploaded and registered in Azure as a dataset
 
 #### b. Create a compute cluster
 
-A compute cluster was created to be used for running the model training experiemnt.
+A compute cluster was created to be used for running the model training experiment.
 
 <p align="center">
 <img src="images/compute_cluster.png.png" width="800">
@@ -41,7 +41,7 @@ A compute cluster was created to be used for running the model training experiem
 
 #### c. Completed AutoML Experiment
 
-The configured AutoML experiment is completed and best model obtained is the VotingEnsemble model.
+The configured AutoML experiment is completed showing the best model summary. 
 
 <p align="center">
 <img src="images/completed_automl_experiment.png" width="800">
@@ -50,7 +50,7 @@ The configured AutoML experiment is completed and best model obtained is the Vot
 
 #### d. Best model after the experiment completes
 
-An overview of the best AutoML model shows an accuracy metric of 0.92.
+The best model obtained is the VotingEnsemble model. An overview of the model shows an accuracy metric of 0.92.
 
 <p align="center">
 <img src="images/best_model_summary.png" width="800">
@@ -71,7 +71,7 @@ The Best Model was selected and deployed using Azure Container Instance (ACI) wi
 
 #### b. Best Model Deployment Succeeded
 
-The Best Model was successfuly deployed.
+The Best Model was successfuly deployed. The deploy status shows **Succeeded**.
 
 <p align="center">
 <img src="images/best_model_deployed.png" width="800">
@@ -87,18 +87,17 @@ The log.py script was modified to include a line that enables application insigh
 
 `service.update(enable_app_insights=True)`.
 
-The script set the application insights variable and enabled logging as shown:
+The script set the application insights variable and enabled logging. The screenshot shows that Application Insights is now set to True and that the Best Model was successfully deployed as a REST endpoint accessible via the Endpoint section.
 
 <p align="center">
 <img src="images/app_insights_enabled.png" width="800">
 </p>
 
-The screenshot shows that Application Insights is now set to True and that the Best Model was successfully deployed as a RESTFUL API accessible via the endpoint section.
 
 
 #### b. Sample logs provided after running logs.py
 
-A sample of log information produced by the deployed model can be seen below:
+Here is a sample of log information produced by the deployed model.
 
 <p align="center">
 <img src="images/logs_1.png" width="800">
@@ -126,11 +125,11 @@ Swagger is used to visualize the API definition contained in *swagger.json*. It 
 
 ### Step 6: Consume Model Endpoints
 
-The *endpoint.py* script was used to interact with the deployed model via the RESTFUL API. The **scoring_url** and the **key information** was modified to match the key for the model service and the URL that was generated after deployment. The URL is found in the Details tab, above the Swagger URI.
+The *endpoint.py* script was used to interact with the deployed model via the REST endpoint. The **scoring_url** and the **key information** was modified to match the key for the model service and the URL that was generated after deployment. The URL is found in the Details tab, above the Swagger URI.
 
 #### a. Output of Consuming Model Endpoint
 
-The endpoint.py was successfully run against the API to produce a JSON format output from the model. A data.json file was produced after the model was consumed.
+Running the *endpoint.py* script produced a JSON format output from the model in addition to a *data.json* file output.
 
 <p align="center">
 <img src="images/consume_model.png" width="800">
@@ -142,7 +141,7 @@ The model endpoint was benchmarked using the Apache bench in order to load-test 
 
 `ab -n 10 -v 4 -p data.json -T 'application/json' -H 'Authorization: Bearer REPLACE_WITH_KEY' http://REPLACE_WITH_API_URL/score`
 
-The screenshots below shows the Apache Benchmark(**ab**) running against the HTTP API using authentication keys to retrieve performance results.
+The following screenshots show the Apache Benchmark(**ab**) running against the HTTP API using authentication keys to retrieve performance results.
 
 <p align="center">
 <img src="images/benchmark1.png" width="800">
@@ -205,13 +204,10 @@ The *config.json* file was downloaded and saved in the current working directory
 </p>
 
 ## Suggested Improvement
-The model performance may be improved by perfoming feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30 /45 minutes to allow more models to be explored.
+The model performance may be improved by perfoming feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30 /45 minutes to allow more models to be explored to optimise performance.
 
 
 ## Screen Recording
 
 A screen recording of the project in action is available [here](https://youtu.be/9HV-VKDag7g)
 
-
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
