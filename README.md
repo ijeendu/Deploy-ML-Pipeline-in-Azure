@@ -209,5 +209,5 @@ The model performance may be improved by perfoming feature engineering on the ba
 
 ## Screen Recording
 
-A screen recording of the project in action is available [here](https://youtu.be/9HV-VKDag7g)
+A screen recording of the project in action is available [here](https://youtu.be/JQ1W6YewmyY)
 
