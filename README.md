@@ -197,11 +197,16 @@ The *config.json* file was downloaded and saved in the current working directory
 </p>
 
 
-#### f. Azure ML studio showing the scheduled pipeline run
+#### f. Azure ML studio showing the scheduled and completed pipeline runs
 
 <p align="center">
 <img src="images/published_pipeline_running.png" width="800">
 </p>
+
+<p align="center">
+<img src="images/pipeline_runs_completed.png" width="800">
+</p>
+
 
 ## Suggested Improvement
 The model performance may be improved by perfoming feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30 /45 minutes to allow more models to be explored to optimise performance.
