@@ -7,7 +7,7 @@ A bank marketing dataset was used to create a classification model to determine 
 An architectural diagram that helps visuaise the flow of operations from start to finish is shown below. It shows the various stages that are critical to the overall flow of the completed project. 
 
 <p align="center">
- <img src="images/Arch_diagram.png" width="500">
+ <img src="images/Arch_diagram.png">
 </p>
 
 ## Key Steps
@@ -28,7 +28,7 @@ In this step, an Automated ML experiment was created and a compute cluster confi
 The bank marketing data was uploaded and registered in Azure as a dataset
 
 <p align="center">
-<img src="images/registered_dataset.png.png" width="800">
+<img src="images/registered_dataset.png.png">
 </p>
 
 #### b. Create a compute cluster
@@ -36,7 +36,7 @@ The bank marketing data was uploaded and registered in Azure as a dataset
 A compute cluster was created to be used for running the model training experiment.
 
 <p align="center">
-<img src="images/compute_cluster.png.png" width="800">
+<img src="images/compute_cluster.png.png">
 </p>
 
 #### c. Completed AutoML Experiment
@@ -44,7 +44,7 @@ A compute cluster was created to be used for running the model training experime
 The configured AutoML experiment is completed showing the best model summary. 
 
 <p align="center">
-<img src="images/completed_automl_experiment.png" width="800">
+<img src="images/completed_automl_experiment.png">
 </p>
 
 
@@ -53,7 +53,7 @@ The configured AutoML experiment is completed showing the best model summary.
 The best model obtained is the VotingEnsemble model. An overview of the model shows an accuracy metric of 0.92.
 
 <p align="center">
-<img src="images/best_model_summary.png" width="800">
+<img src="images/best_model_summary.png">
 </p>
 
 
@@ -66,7 +66,7 @@ Here, the best model is deployed to enable interaction with the model via HTTP A
 The Best Model was selected and deployed using Azure Container Instance (ACI) with enabled authentication. 
 
 <p align="center">
-<img src="images/deploy_best_model_with_enabled_authentication.png" width="800">
+<img src="images/deploy_best_model_with_enabled_authentication.png">
 </p>
 
 #### b. Best Model Deployment Succeeded
@@ -74,7 +74,7 @@ The Best Model was selected and deployed using Azure Container Instance (ACI) wi
 The Best Model was successfuly deployed. The deploy status shows **Succeeded**.
 
 <p align="center">
-<img src="images/best_model_deployed.png" width="800">
+<img src="images/best_model_deployed.png">
 </p>
 
 
@@ -90,7 +90,7 @@ The log.py script was modified to include a line that enables application insigh
 The script set the application insights variable and enabled logging. The screenshot shows that Application Insights is now set to True and that the Best Model was successfully deployed as a REST endpoint accessible via the Endpoint section.
 
 <p align="center">
-<img src="images/app_insights_enabled.png" width="800">
+<img src="images/app_insights_enabled.png">
 </p>
 
 
@@ -100,11 +100,11 @@ The script set the application insights variable and enabled logging. The screen
 Here is a sample of log information produced by the deployed model.
 
 <p align="center">
-<img src="images/logs_1.png" width="800">
+<img src="images/logs_1.png">
 </p>
 
 <p align="center">
-<img src="images/logs_2.png" width="800">
+<img src="images/logs_2.png">
 </p>
 
 ### Step 5: Swagger Documentation
@@ -119,7 +119,7 @@ The *serve.py* script was placed right next to the downloaded *swagger.json* fil
 Swagger is used to visualize the API definition contained in *swagger.json*. It shows the HTTP API methods and responses for the deployed model.
 
 <p align="center">
-<img src="images/Swagger_UI.png" width="800">
+<img src="images/Swagger_UI.png">
 </p>
 
 
@@ -132,7 +132,7 @@ The *endpoint.py* script was used to interact with the deployed model via the RE
 Running the *endpoint.py* script produced a JSON format output from the model in addition to a *data.json* file output.
 
 <p align="center">
-<img src="images/consume_model.png" width="800">
+<img src="images/consume_model.png">
 </p>
 
 #### b. Benchmark the Model Endpoint
@@ -144,19 +144,19 @@ The model endpoint was benchmarked using the Apache bench in order to load-test 
 The following screenshots show the Apache Benchmark(**ab**) running against the HTTP API using authentication keys to retrieve performance results.
 
 <p align="center">
-<img src="images/benchmark1.png" width="800">
+<img src="images/benchmark1.png">
 </p>
 
 <p align="center">
-<img src="images/benchmark2.png" width="800">
+<img src="images/benchmark2.png">
 </p>
 
 <p align="center">
-<img src="images/benchmark3.png" width="800">
+<img src="images/benchmark3.png">
 </p>
 
 <p align="center">
-<img src="images/benchmark4.png" width="800">
+<img src="images/benchmark4.png">
 </p>
 
 
@@ -168,43 +168,43 @@ The *config.json* file was downloaded and saved in the current working directory
 #### a. Pipeline section of Azure ML studio, showing created pipeline
 
 <p align="center">
-<img src="images/pipeline_created.png" width="800">
+<img src="images/pipeline_created.png">
 </p>
 
 #### b. pipeline section in Azure ML studio, showing Pipeline Endpoint
 
 <p align="center">
-<img src="images/pipeline_endpoint.png" width="800">
+<img src="images/pipeline_endpoint.png">
 </p>
 
 #### c. The Bankmarketing dataset with the AutoML module
 
 <p align="center">
-<img src="images/data_automl_module.png" width="800">
+<img src="images/data_automl_module.png">
 </p>
 
 #### d. The "Published Pipeline overview", showing a REST endpoint and a status of ACTIVE
 
 <p align="center">
-<img src="images/published_pipeline_overview_showing_REST_endpoint.png" width="800">
+<img src="images/published_pipeline_overview_showing_REST_endpoint.png">
 </p>
 
 
 #### e. Jupyter Notebook showing run steps using the "Use RunDetails Widget"
 
 <p align="center">
-<img src="images/notebook_complete_steps.png" width="800">
+<img src="images/notebook_complete_steps.png">
 </p>
 
 
 #### f. Azure ML studio showing the scheduled and completed pipeline runs
 
 <p align="center">
-<img src="images/published_pipeline_running.png" width="800">
+<img src="images/published_pipeline_running.png">
 </p>
 
 <p align="center">
-<img src="images/pipeline_runs_completed.png" width="800">
+<img src="images/pipeline_runs_completed.png">
 </p>
 
 
