@@ -1,4 +1,4 @@
-# Operationalising a Machine Learning Pipeline in Microsoft Azure
+# Deploying a Machine Learning Pipeline in Microsoft Azure
 
 This project demonstrates the end to end process of creating a machine learning model using Azure AutoML, deploying the model, and consuming it as a webservice. It also showcases the use of Jupyter Notebook in Azure SDK for creating AutoML pipelines as well as for deploying and consuming ML models. 
 
