@@ -4,10 +4,10 @@ This project demonstrates the end to end process of creating a machine learning 
 
 A bank marketing dataset was used in the Azure AutoML Machine Learning Service to develop a classification model that determines if a client would subscribe to a marketing campaign or not. The Azure machine learning studio was first used to configure an AutoML experiment that explores a variety of classification models based on the AutoML configuration parameters. At the end of the experiment, the best performing model (a VotingEnsemble model with an accuracy of 0.92) was deployed to provide a REST endpoint for interacting with the model. 
 Post model deployment, Application Insights was enabled using Azure SDK to enable collection of logging information from the deployed model. The Swagger JSON file provided by Azure for the deployed model was downloaded from the `Endpoints` section in Azure under the `Swagger URL` and saved in a `swagger.json` file. The contents of the API for the model was displayed and the deployed model was consumed using Swagger. The deployed model was also benchmarked to obtain a baseline performance that can be used for evaluating the model behaviour in the future. 
-Finally, a *Jupyter Notebook* was used to create an AutoML machine learning pipeline in Azure Python SDK using the same bank marketing dataset. The AutoML pipeline was deployed producing a pipeline endpoint that was used to consume the model. The completed pipeline run produced the same model results as obtained using Azure Machine Learning Studio.
+Finally, a `Jupyter Notebook` was used to create an AutoML machine learning pipeline in Azure Python SDK using the same bank marketing dataset. The AutoML pipeline was deployed producing a pipeline endpoint that was used to consume the model. The completed pipeline run produced the same model results as obtained using Azure Machine Learning Studio.
 
 ## Architectural Diagram
-An architectural diagram that helps visuaise the flow of operations from start to finish is shown below. It shows the various stages that are critical to the overall flow of the completed project. 
+An architectural diagram that visualises the project workflow is shown below. It highlights the various stages that are critical to the process flow of the completed project. 
 
 <p align="center">
  <img src="images/Arch_diagram.png">
