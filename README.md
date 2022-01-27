@@ -168,19 +168,19 @@ The following screenshots show the Apache Benchmark(**ab**) running against the 
 In this step, a Jupyter Notebook provided in the starter files was used to create, Publish and Consume a Pipeline using Azure Python SDK. The notebook was uploaded to the Azure ML studio and all the variables were updated to use the same **keys**, **URL**, **dataset**, **cluster**, and **model names** as created in the preceeding steps using AutoML.
 The *config.json* file was downloaded and saved in the current working directory. The cells of the notebok were run through to create a pipeline that is visible in the Pipelines section of Azure ML studio. The pipeline was verified to be *Active* and *Running* in the Azure ML studio.
 
-#### a. Pipeline section of Azure ML studio, showing created pipeline
+#### a. Pipeline section of the Azure ML studio showing created pipeline
 
 <p align="center">
 <img src="images/pipeline_created.png">
 </p>
 
-#### b. pipeline section in Azure ML studio, showing Pipeline Endpoint
+#### b. Pipeline section of the Azure ML studio showing pipeline Endpoint
 
 <p align="center">
 <img src="images/pipeline_endpoint.png">
 </p>
 
-#### c. The Bankmarketing dataset with the AutoML module
+#### c. The Bankmarketing dataset used with the AutoML module
 
 <p align="center">
 <img src="images/data_automl_module.png">
@@ -212,7 +212,7 @@ The *config.json* file was downloaded and saved in the current working directory
 
 
 ## Suggested Improvement
-The model performance may be improved by perfoming feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30 /45 minutes to allow more models to be explored to optimise performance.
+The model performance may be improved by performing feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30-45 minutes to allow more models to be explored in order to optimise performance.
 
 
 ## Screen Recording
