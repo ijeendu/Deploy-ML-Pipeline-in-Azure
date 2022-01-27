@@ -165,7 +165,7 @@ The following screenshots show the Apache Benchmark(**ab**) running against the 
 
 ### Step 7: Create, Publish and Consume a Pipeline
 
-In this step, a Jupyter Notebook provided in the starter files was used to create, Publish and Consume a Pipeline using Azure Python SDK. The notebook was uploaded to the Azure ML studio and all the variables were updated to use the same **keys**, **URL**, **dataset**, **cluster**, and **model names** as created in the preceeding steps using AutoML.
+In this step, a Jupyter Notebook provided as a starter file was used to create, publish and consume a pipeline using Azure Python SDK. The notebook was uploaded to the Azure ML studio and all the variables were updated to use the same **keys**, **URL**, **dataset**, **cluster**, and **model names** as created in the preceeding steps using AutoML.
 The *config.json* file was downloaded and saved in the current working directory. The cells of the notebok were run through to create a pipeline that is visible in the Pipelines section of Azure ML studio. The pipeline was verified to be *Active* and *Running* in the Azure ML studio.
 
 #### a. Pipeline section of the Azure ML studio showing created pipeline
@@ -186,7 +186,7 @@ The *config.json* file was downloaded and saved in the current working directory
 <img src="images/data_automl_module.png">
 </p>
 
-#### d. The "Published Pipeline overview", showing a REST endpoint and a status of ACTIVE
+#### d. The "Published Pipeline overview" showing a REST endpoint and a status of ACTIVE
 
 <p align="center">
 <img src="images/published_pipeline_overview_showing_REST_endpoint.png">
