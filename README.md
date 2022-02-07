@@ -8,23 +8,23 @@ Post model deployment, Application Insights was enabled using Azure SDK to enabl
 Using the same bank marketing dataset, a `Jupyter Notebook` was used to create an AutoML machine learning pipeline using Azure Python SDK. The AutoML pipeline was deployed producing a pipeline endpoint that was used to consume the model. The completed pipeline run in Azure SDK produced the same model results as obtained using the Azure Machine Learning Studio.
 
 ## Architectural Diagram
-An architectural diagram that visualises the project workflow is shown below. It highlights the various stages that were critical to the completion of the project. 
+An architectural diagram that visualises the project workflow is shown below. It highlights the various stages that were critical for completing the project. 
 
 <p align="center">
  <img src="images/Arch_diagram.png">
 </p>
 
 ## Key Steps
-The architectural diagram captures 7 major steps that are briefly described in this section.
+The seven key steps captured by the architectural diagram are briefly discussed in this section.
 
 ### Step 1: Authentication
 
-During the authentication step, the Azure Machine Learning Extension that enables interaction with the Azure Machine Learning Studio, part of the **az** command is installed and enabled in the terminal. Afterwards, a Service Principal account is created and associated with the specific workspace. This step is required when using a personal Azure account. However, for this course, the lab envirionment provided by Udacity was used and it did not provide authorisation to create a service principal so this step was skipped. This did not affect the fulfilment of the other steps required in the project.
+During the authentication step, the Azure Machine Learning Extension that enables interaction with the Azure Machine Learning Studio, part of the **az** command, is installed and enabled in the terminal. Afterwards, a Service Principal account is created and associated with the specific workspace. This step is required when using a personal Azure account. However, for this course, the lab environment provided by Udacity was used and it did not provide authorization to create a service principal so this step was skipped. This did not affect the fulfilment of the next steps required for project completion.
 
 
 ### Step 2: Automated ML experiment
 
-In this step, an Automated ML experiment was created and a compute cluster configured to run the experiment. The banking dataset available [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) was registered in Azure ML studio and used for the AutoML model configuration and training. The experiment was set up by performing a sequence of activities as follows:
+In this step, an Automated ML experiment was created and a compute cluster configured to run the experiment. The banking dataset available [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) was registered in Azure ML studio and used for the AutoML model configuration and training. The experiment was set up by performing a sequence of activities documented as follows:
 
 
 #### a. Upload and Register the Banking Dataset
@@ -37,7 +37,7 @@ The bank marketing data was uploaded and registered in Azure as a dataset
 
 #### b. Create a compute cluster
 
-A compute cluster was created to be used for running the model training experiment.
+A compute cluster for running the model training experiment was created.
 
 <p align="center">
 <img src="images/compute_cluster.png.png">
@@ -45,7 +45,7 @@ A compute cluster was created to be used for running the model training experime
 
 #### c. Completed AutoML Experiment
 
-The configured AutoML experiment is completed showing the best model summary. 
+The configured AutoML experiment was completed and the best model summary is shown: 
 
 <p align="center">
 <img src="images/completed_automl_experiment.png">
@@ -54,7 +54,7 @@ The configured AutoML experiment is completed showing the best model summary.
 
 #### d. Best model after the experiment completes
 
-The best model obtained is the VotingEnsemble model. An overview of the model shows an accuracy metric of 0.92.
+The best model obtained was the VotingEnsemble model. An overview of the model shows an accuracy metric of 0.92.
 
 <p align="center">
 <img src="images/best_model_summary.png">
@@ -63,7 +63,7 @@ The best model obtained is the VotingEnsemble model. An overview of the model sh
 
 ### Step 3: Deploy the Best Model
 
-Here, the best model is deployed to enable interaction with the model by sending data over POST requests via the HTTP API service.
+The best model was deployed to enable interaction with the model by sending data over POST requests via the HTTP API service.
 
 #### a. Deploy Best Model 
 
@@ -87,11 +87,11 @@ The Best Model was successfully deployed. The deploy status shows **Succeeded**.
 Post deployment, Application Insights was enabled to retrieve log information from the deployed model. This step was completed by editing and running the *logs.py* script that enabled Application Insights using Azure Python SDK.
 
 #### a. Application Insights is enabled 
-The *log.py* script was modified to include a line that enables application insights:
+The *log.py* script was modified to include a line that enables application insights as follows:
 
 `service.update(enable_app_insights=True)`.
 
-The script set the application insights variable and enabled logging. The screenshot shows that Application Insights is now set to True and that the Best Model was successfully deployed as a REST endpoint accessible via the Endpoint section.
+The script sets the application insights variable and enables logging. The screenshot from the Azure ML studio shows that Application Insights is now set to True and that the Best Model was successfully deployed as a REST endpoint accessible via the Endpoint section.
 
 <p align="center">
 <img src="images/app_insights_enabled.png">
@@ -114,7 +114,7 @@ Here is a sample of log information produced by the deployed model.
 ### Step 5: Swagger Documentation
 
 In this step, the deployed model was consumed using Swagger. The Swagger JSON file provided by Azure for the deployed model was downloaded from the Endpoints section in Azure under the Swagger URL and saved in a file named *swagger.json*. The *swagger.sh* script was modified and used to download the lastest Swagger container and to run it in on Port 9000. 
-The *serve.py* script  starts a local server that makes it possible to access the *swagger.json* file over the HTTP protocol, expected by the Swagger User Interface (UI).  The script was used to start a Python server on port 8000. 
+The *serve.py* script starts a local server that makes it possible to access the *swagger.json* file over the HTTP protocol as expected by the Swagger User Interface (UI).  The script was used to start a Python server on port 8000. 
 The *serve.py* script was placed right next to the downloaded *swagger.json* file and the contents of the API for the model was displayed using Swagger.
 
 
@@ -129,7 +129,7 @@ Swagger is used to visualize the API definition contained in *swagger.json*. It 
 
 ### Step 6: Consume Model Endpoints
 
-The *endpoint.py* script was used to interact with the deployed model via the REST endpoint. The **scoring_url** and the **key information** was modified to match the key for the model service and the URL that was generated after deployment. The URL is found in the Details tab, above the Swagger URI.
+The *endpoint.py* script was used to interact with the deployed model via the REST endpoint. The **scoring_url** and the **key information** was modified to match the key for the model service and the URL that was generated post deployment. The URL is found under the Details tab, above the Swagger URI.
 
 #### a. Output of Consuming Model Endpoint
 
@@ -167,7 +167,7 @@ The following screenshots show the Apache Benchmark(**ab**) running against the 
 ### Step 7: Create, Publish and Consume a Pipeline
 
 In this step, a Jupyter Notebook provided as a starter file was used to create, publish and consume a pipeline using Azure Python SDK. The notebook was uploaded to the Azure ML studio and all the variables were updated to use the same **keys**, **URL**, **dataset**, **cluster**, and **model names** as created in the preceeding steps using AutoML.
-The *config.json* file was downloaded and saved in the current working directory. The cells of the notebok were run through to create a pipeline that is visible in the Pipelines section of Azure ML studio. The pipeline was verified to be *Active* and *Running* in the Azure ML studio.
+The *config.json* file was downloaded and saved in the current working directory. The cells of the notebok were run through to create a pipeline that is visible in the Pipelines section of the Azure ML studio. The pipeline was verified to be *Active* and *Running* as shown:
 
 #### a. Pipeline section of the Azure ML studio showing created pipeline
 
@@ -213,7 +213,7 @@ The *config.json* file was downloaded and saved in the current working directory
 
 
 ## Suggested Improvement
-The model performance may be improved by performing feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30-45 minutes to allow more models to be explored in order to optimise performance.
+The model performance may be improved by performing feature engineering on the bank marketing dataset. Also, the experiment time out period can be increased from 20 minutes to say 30-45 minutes to allow more models to be explored to optimise performance.
 
 
 ## Screen Recording
