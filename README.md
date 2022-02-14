@@ -19,7 +19,7 @@ The seven key steps captured by the architectural diagram are briefly discussed 
 
 ### Step 1: Authentication
 
-During the authentication step, the Azure Machine Learning Extension that enables interaction with the Azure Machine Learning Studio, part of the **az** command, is installed and enabled in the terminal. Afterwards, a Service Principal account is created and associated with the specific workspace. This step is required when using a personal Azure account. However, for this course, the lab environment provided by Udacity was used and it did not provide authorization to create a service principal so this step was skipped. This did not affect the fulfilment of the next steps required for project completion.
+During the authentication step, the Azure Machine Learning Extension that enables interaction with the Azure Machine Learning Studio, part of the **az** command, was installed and enabled in the terminal. Afterwards, a Service Principal account was created and associated with the specific workspace. This step is required when using a personal Azure account. However, for this course, the lab environment provided by Udacity was used and it did not provide authorization to create a service principal so this step was skipped. This did not affect the fulfilment of the other steps required for project completion.
 
 
 ### Step 2: Automated ML experiment
@@ -29,7 +29,7 @@ In this step, an Automated ML experiment was created and a compute cluster confi
 
 #### a. Upload and Register the Banking Dataset
 
-The bank marketing data was uploaded and registered in Azure as a dataset
+The bank marketing data was uploaded and registered in Azure as a dataset:
 
 <p align="center">
 <img src="images/registered_dataset.png.png">
@@ -37,7 +37,7 @@ The bank marketing data was uploaded and registered in Azure as a dataset
 
 #### b. Create a compute cluster
 
-A compute cluster for running the model training experiment was created.
+A compute cluster for running the model training experiment was created:
 
 <p align="center">
 <img src="images/compute_cluster.png.png">
@@ -45,7 +45,7 @@ A compute cluster for running the model training experiment was created.
 
 #### c. Completed AutoML Experiment
 
-The configured AutoML experiment was completed and the best model summary is shown: 
+The configured AutoML experiment was completed and the best model summary obtained as shown: 
 
 <p align="center">
 <img src="images/completed_automl_experiment.png">
@@ -54,7 +54,7 @@ The configured AutoML experiment was completed and the best model summary is sho
 
 #### d. Best model after the experiment completes
 
-The best model obtained was the VotingEnsemble model. An overview of the model shows an accuracy metric of 0.92.
+The resulting best model was the VotingEnsemble model. An overview of the model shows an accuracy metric of 0.92.
 
 <p align="center">
 <img src="images/best_model_summary.png">
@@ -75,7 +75,7 @@ The Best Model was selected and deployed using Azure Container Instance (ACI) wi
 
 #### b. Best Model Deployment Succeeded
 
-The Best Model was successfully deployed. The deploy status shows **Succeeded**.
+The Best Model was successfully deployed. The `deploy status` shows **Succeeded**.
 
 <p align="center">
 <img src="images/best_model_deployed.png">
@@ -84,7 +84,7 @@ The Best Model was successfully deployed. The deploy status shows **Succeeded**.
 
 ### Step 4: Enable Application Insights
 
-Post deployment, Application Insights was enabled to retrieve log information from the deployed model. This step was completed by editing and running the *logs.py* script that enabled Application Insights using Azure Python SDK.
+Post-deployment, Application Insights was enabled to retrieve log information from the deployed model. This step was completed by editing and running the *logs.py* script that enabled Application Insights using Azure Python SDK.
 
 #### a. Application Insights is enabled 
 The *log.py* script was modified to include a line that enables application insights as follows:
